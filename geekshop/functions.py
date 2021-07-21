@@ -6,4 +6,12 @@ def get_json_data(page):
         json_data = json.load(file)
     return json_data[page]
 
-# print(get_json_data('index'))
+
+def get_json_products_data(file_path):
+    with open(file_path, encoding='utf-8-sig') as file:
+        json_data = json.load(file)
+    return json_data
+
+
+# print(get_json_products_data('geekshop/json_products_data.json'))
+# print(get_json_data('products'))

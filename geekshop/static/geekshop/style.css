@@ -380,6 +380,13 @@ html, body {
 .trending-products .block a img {
 	float: left;
 }
+
+.product-image {
+	object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
 .trending-products .block {
 	float: left;
 	margin: 15px;
