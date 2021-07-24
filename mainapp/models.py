@@ -12,12 +12,12 @@ class ProductCategory(models.Model):
         blank=True  # указывает на необязательность заполнения поля модели
     )
 
-    href = models.CharField(
-        verbose_name='ссылка',  # видимое имя
-        max_length=64,
-        unique=True,
-        default='#',
-    )
+    # href = models.CharField(
+    #     verbose_name='ссылка',  # видимое имя
+    #     max_length=64,
+    #     unique=True,
+    #     default='#',
+    # )
 
     created = models.DateTimeField(auto_now_add=True)
 
