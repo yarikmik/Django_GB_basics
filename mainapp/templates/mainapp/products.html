@@ -50,6 +50,34 @@
 		</div>
 	</div>
 
+    <div class="products_list">
+
+    {% if category %}
+      <div class="title clearfix">
+        <h2>
+          Категория: "{{ category.name|title }}"
+        </h2>
+      <a class="explore" href="#">показать все <img src="/static/geekshop/img/arrow.png" alt=""></a>
+      </div>
+    {% endif %}
+
+      <div class="category-products clearfix">
+
+        {% for product in products %}
+          <div class="block">
+            <a href="#">
+              <img class="product-image" src="/media/{{ product.image }}" alt="product">
+              <div class="text">
+                <img src="{% static '/static/geekshop/img/icon-hover.png' %}" alt="hover">
+                  <h4>{{ product.name }}</h4>
+                  <p>{{ product.description }}</p>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
 	<div class="related">
 		<div class="title clearfix">
 			<h2>Похожие продукты</h2>
