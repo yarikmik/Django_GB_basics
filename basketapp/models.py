@@ -20,7 +20,17 @@ class Basket(models.Model):
         verbose_name='колличество',
         default=0
     )
+
+    # price = models.PositiveIntegerField(
+    #     product.price,
+    #     verbose_name='общая цена',
+    #     default=0
+    # )
+
     add_datetime = models.DateTimeField(
         verbose_name='время',
         auto_now_add=True
     )
+
+    def total_price(self):
+        return self.product.price * self.quantity

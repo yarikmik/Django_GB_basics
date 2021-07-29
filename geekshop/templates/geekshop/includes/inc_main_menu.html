@@ -14,11 +14,11 @@
                 <a href="{% url 'auth:edit' %}">
                     {{ user.first_name|default:'Пользователь' }}
                 </a>
-                (<a href="{% url 'basket:view' %}" >
+                <a href="{% url 'basket:view' %}" >
                     <span>
-                      {% if basket %} в корзине: {{ basket|length }} {% endif %}
+                      {% if basket %}( в корзине: {{ quantity }}, сумма: {{ total_price }} ){% endif %}
                     </span>
-                </a>)
+                </a>
             </li>
         {% endif %}
 

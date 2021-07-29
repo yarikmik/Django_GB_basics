@@ -4,6 +4,20 @@ from basketapp.models import Basket
 from mainapp.models import ProductCategory, Product
 
 
+def total_prise_in_basket(basket):
+    total_price = 0
+    for basket_object in basket:
+        total_price += basket_object.total_price()
+    return total_price
+
+
+def total_quantity_in_basket(basket):
+    total = 0
+    for basket_object in basket:
+        total += basket_object.quantity
+    return total
+
+
 def products(request, pk=None):
     title = 'продукты'
     links_menu = ProductCategory.objects.all()
@@ -28,6 +42,8 @@ def products(request, pk=None):
             'products': products,
             'category': category,
             'basket': basket,
+            'quantity': total_quantity_in_basket(basket),
+            'total_price': total_prise_in_basket(basket),
         }
         return render(request, 'mainapp/products.html', context)
 
@@ -39,5 +55,7 @@ def products(request, pk=None):
         'related_products': related_products,
         'products': products,
         'basket': basket,
+        'quantity': total_quantity_in_basket(basket),
+        'total_price': total_prise_in_basket(basket),
     }
     return render(request, 'mainapp/products.html', context)
