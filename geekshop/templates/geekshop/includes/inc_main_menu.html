@@ -16,7 +16,10 @@
                 </a>
                 <a href="{% url 'basket:view' %}" >
                     <span>
-                      {% if basket %}( в корзине: {{ quantity }}, сумма: {{ total_price }} ){% endif %}
+                      {% if basket %}
+                          {{ basket.0.total_cost|floatformat:0}} руб
+                          ({{ basket.0.total_quantity}} шт)
+                      {% endif %}
                     </span>
                 </a>
             </li>

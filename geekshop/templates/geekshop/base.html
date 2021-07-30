@@ -5,7 +5,8 @@
 	<meta charset="utf-8">
 	<title>{% block title %}{{title|title}}{% endblock %}</title>
 	<link rel="stylesheet" type="text/css" href="{% static "geekshop/style.css" %}">
-	<link rel="stylesheet" href="{% static "geekshop/fonts/font-awesome/css/font-awesome.css" %}">
+    <link rel="stylesheet" href="{% static "geekshop/fonts/font-awesome/css/font-awesome.css" %}">
+
 </head>
 <body>
 	<div class="container">
@@ -20,6 +21,7 @@
 
     {% include 'geekshop/includes/inc_footer.html' %}
 
-
+    {% block js %}
+    {% endblock %}
 </body>
 </html>

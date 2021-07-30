@@ -32,5 +32,20 @@ class Basket(models.Model):
         auto_now_add=True
     )
 
-    def total_price(self):
+    @property
+    def product_cost(self):
         return self.product.price * self.quantity
+
+
+    @property
+    def total_quantity(self):
+        items = Basket.objects.filter(user=self.user)
+        totalquantity = sum(list(map(lambda x: x.quantity, items)))
+        return totalquantity
+
+
+    @property
+    def total_cost(self):
+        items = Basket.objects.filter(user=self.user)
+        totalcost = sum(list(map(lambda x: x.product_cost, items)))
+        return totalcost
