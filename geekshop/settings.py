@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'mainapp',
     'authapp',
     'basketapp',
+    'adminapp',
 ]
 
 AUTH_USER_MODEL = 'authapp.ShopUser'
@@ -120,6 +121,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'geekshop', 'static'),
 )
+
+STATICFILES_FINDERS = [  # описывает где джанго ищет файлики statics
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
 # тут описываются пути до созданной папки media, в которой будет храниться весь загружаемый контент:
 MEDIA_URL = '/media/'
