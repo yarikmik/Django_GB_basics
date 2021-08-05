@@ -11,8 +11,8 @@ app_name = 'adminapp'
 urlpatterns = [
     path('users/create/', user_create, name='user_create'),
     path('users/read/', users, name='users'),
-    path('users/update/<int:pk>/', user_update, name='user_update'),
-    path('users/delete/<int:pk>/', user_delete, name='user_delete'),
+    path('users/update/<int:id>/', user_update, name='user_update'),
+    path('users/delete/<int:id>/', user_delete, name='user_delete'),
 
     path('categories/create/', category_create, name='category_create'),
     path('categories/read/', categories, name='categories'),
