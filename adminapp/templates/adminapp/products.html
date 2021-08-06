@@ -39,7 +39,7 @@
                             </tfoot>
                             <tbody>
                             {% for product in objects %}
-                                <tr>
+                                <tr style="{% if not product.is_active %}opacity: 0.5;{% endif %}">
                                     <td><img src="/media/{{ product.image }}" style="height:50%; width:50%">
                                     </td>
                                     <td>{{ product.name }}</td>
@@ -47,23 +47,23 @@
                                     <td>{{ product.price }}</td>
                                     <td>{{ product.quantity }}</td>
                                     <td class="text-center">
-                                        <button>
-                                            <a href={% url 'admin_staff:product_read' product.pk %}>
+                                        <button class="{% if not product.is_active %} invisible {% endif %}">
+                                            <a href={% url 'adminapp:product_read' product.pk %}>
                                                 Подробнее
                                             </a>
                                         </button>
                                     </td>
                                     <td class="text-center">
-                                        <button>
-                                            <a href={% url 'admin_staff:product_update' product.pk %}>
+                                        <button class="{% if not product.is_active %} invisible {% endif %}">
+                                            <a href={% url 'adminapp:product_update' product.pk %}>
                                                 Радактировать
                                             </a>
                                         </button>
                                     </td>
                                     <td class="text-center">
-                                        <button>
-                                            <a href={% url 'admin_staff:product_delete' product.pk %}>
-                                                Удалить
+                                        <button >
+                                            <a href={% url 'adminapp:product_delete' product.pk %}>
+                                                {% if product.is_active %}Удалить{% else %}Восстановить{% endif %}
                                             </a>
                                         </button>
                                     </td>
