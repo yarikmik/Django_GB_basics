@@ -61,14 +61,14 @@
                                     </td>
                                     <td class="text-center">
                                         <button>
-                                            <a href={% url 'admin_staff:user_update' user.id %}>
+                                            <a href={% url 'admin_staff:user_update' user.pk %}>
                                                 Изменить
                                             </a>
                                         </button>
                                     </td>
                                     <td class="text-center">
                                         <button>
-                                            <a href={% url 'admin_staff:user_delete' user.id %}>
+                                            <a href={% url 'admin_staff:user_delete' user.pk %}>
                                                 Удалить
                                             </a>
                                         </button>
