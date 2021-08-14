@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'mainapp.context_processors.basket',  # добавление своего контекстного процессора
             ],
         },
     },
@@ -140,4 +141,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # если пользователь не залогинен
 LOGIN_URL = '/auth/login'
 
+# вариант настройки для стандартной отправки почты через smtp:
+DOMAIN_NAME = 'http://localhost:8000'
 
+# настройка ждля тестового сервиса https://mailtrap.io/
+# EMAIL_HOST = 'smtp.mailtrap.io'
+# EMAIL_HOST_USER = '9b27c701f3e838'
+# EMAIL_HOST_PASSWORD = '1884611a40bf5d'
+# EMAIL_PORT = '2525'
+
+
+# Настройки для шифрования:
+EMAIL_USE_SSL = False
+EMAIL_USE_TLS = False
+
+# вариант python -m smtpd -n -c DebuggingServer localhost:25
+EMAIL_HOST_USER, EMAIL_HOST_PASSWORD = None, None
+
+# вариант логирования сообщений почты в виде файлов вместо отправки
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+# EMAIL_FILE_PATH = 'tmp/email-messages/'
