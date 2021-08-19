@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from authapp.forms import ShopUserLoginForm, ShopUserEditForm, ShopUserRegisterForm
+from authapp.forms import ShopUserLoginForm, ShopUserEditForm, ShopUserRegisterForm, ShopUserProfileEditForm
 from authapp.models import ShopUser
 
 
@@ -67,16 +67,20 @@ def edit(request):
 
     if request.method == 'POST':
         edit_form = ShopUserEditForm(request.POST, request.FILES, instance=request.user)
-        if edit_form.is_valid():
+        profile_form = ShopUserProfileEditForm(request.POST, instance=request.user.shopuserprofile)
+
+        if edit_form.is_valid() and profile_form.is_valid():
             edit_form.save()
 
             return HttpResponseRedirect(reverse('auth:edit'))
     else:
         edit_form = ShopUserEditForm(instance=request.user)
+        profile_form = ShopUserProfileEditForm(instance=request.user.shopuserprofile)
 
     context = {
         'title': title,
         'edit_form': edit_form,
+        'profile_form': profile_form,
     }
     return render(request, 'authapp/edit.html', context)
 
@@ -87,8 +91,8 @@ def send_verify_mail(user):
 
     title = f'Подтверждение учетной записи {user.username}'
 
-    message = f'Для подтверждения учетной записи {user.username} на сайте {settings.DOMAIN_NAME} пройдите по ссылке:'\
-        f'<a href = "{settings.DOMAIN_NAME}{verify_link}"> Активировать </a>'
+    message = f'Для подтверждения учетной записи {user.username} на сайте {settings.DOMAIN_NAME} пройдите по ссылке:' \
+              f'<a href = "{settings.DOMAIN_NAME}{verify_link}"> Активировать </a>'
 
     return send_mail(title, message, settings.EMAIL_HOST_USER, [user.email], fail_silently=False)
 
@@ -99,7 +103,8 @@ def verify(request, email, activation_key):
         if user.activation_key == activation_key and not user.is_activation_key_expired():
             user.is_active = True
             user.save()
-            auth.login(request,user)
+            # сздесь необходимо указать backend напрямую, если используется авторизация через социалки
+            auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return render(request, 'authapp/verification.html')
         else:
             print(f' activation key error in user {user.username}')
