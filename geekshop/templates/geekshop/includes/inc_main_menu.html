@@ -9,32 +9,45 @@
         <li><a href="{% url 'contacts' %}"
                class="{% if request.resolver_match.view_name == 'contacts' %}active{% endif %}">контакты</a></li>
 
-        {% if user.is_authenticated %}
-            <li>
-                <a href="{% url 'auth:edit' %}">
-                    {{ user.first_name|default:'Пользователь' }}
-                </a>
-                {% if basket %}
-                    <a href="{% url 'basket:view' %}">
-                    <span>
-
-                          {{ basket.0.total_cost|floatformat:0 }} руб
-                          ({{ basket.0.total_quantity }} шт)
-
-                    </span>
+  {% if user.is_authenticated %}
+            <li class="auth">
+                <div class="dropdown">
+                    <a href="#" class=" dropdown-toggle" type="button" id="dropdownMenuButton2"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ user.first_name|default:'Пользователь' }}
                     </a>
-                {% endif %}
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        <li>
+                            <a class="dropdown-item inline-block" href="{% url 'auth:edit' %}">Профиль</a>
+                        </li>
+                        {% if user.is_staff %}
+                            <li>
+                                <hr class="dropdown-divider inline-block">
+                            </li>
+                            <li>
+                                <a class="dropdown-item inline-block" href="{% url 'admin_staff:users' %}">Менеджер</a>
+                            </li>
+                        {% endif %}
+                        {% if user.is_superuser %}
+                            <li>
+                                <a class="dropdown-item inline-block" href="/admin/">
+                                    Админка
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
             </li>
-
-            {% if user.is_superuser %}
-                <li>
-                    <a href="{% url 'admin_staff:users' %}">админка</a>
-                </li>
-            {% endif %}
-
+            </li>
+            <a href="{% url 'basket:view' %}">
+                <span>
+                    {% if basket %}
+                        {{ basket.0.total_cost|floatformat:0 }} руб
+                        ({{ basket.0.total_quantity }} шт )
+                    {% endif %}
+                </span>
+            </a>
         {% endif %}
-
-
         <li>
             {% if user.is_authenticated %}
                 <a href="{% url 'auth:logout' %}">выйти</a>
@@ -42,10 +55,6 @@
                 <a href="{% url 'auth:login' %}">войти</a>
             {% endif %}
         </li>
-
     </ul>
-
     <a href="#" class="search"></a>
-
-
 </div>

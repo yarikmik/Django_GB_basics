@@ -1,13 +1,6 @@
 from django.urls import path, include
 from adminapp.views import (
-    # categories,
-    # category_create,
-    # category_update,
-    # category_delete,
-    # products,
-    # product_update,
     product_delete,
-    # product_create,
     UserListView,
     UserCreateView,
     ProductDetailView,
