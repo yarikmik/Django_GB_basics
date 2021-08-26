@@ -158,6 +158,7 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'adminapp/product_update.html'
     fields = '__all__'
 
+
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ProductUpdateView, self).get_context_data()
         title = 'продукт/редактирование'
@@ -165,7 +166,7 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
         return context
 
     def get_success_url(self):
-        return reverse('adminapp:product_update', args=[self.kwargs['pk']])
+        return reverse('admin_staff:products', args=[self.object.category_id])
 
 
 def product_delete(request, pk):
