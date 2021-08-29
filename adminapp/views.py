@@ -8,6 +8,7 @@ from authapp.forms import ShopUserRegisterForm, ShopUserEditForm
 from authapp.models import ShopUser
 from mainapp.models import ProductCategory, Product
 from django.contrib.auth.decorators import user_passes_test
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
