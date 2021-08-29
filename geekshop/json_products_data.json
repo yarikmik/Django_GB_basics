@@ -1,0 +1,30 @@
+[
+  {
+    "name": "маленький стул",
+    "category": "все",
+    "short_desc": "маленький, но гордый стул",
+    "price": "1600",
+    "quantity": "2"
+  },
+  {
+    "name": "офисный стол",
+    "category": "офис",
+    "short_desc": "просто стол",
+    "price": "2100",
+    "quantity": "1"
+  },
+  {
+    "name": "неоновая лампа",
+    "category": "hitech",
+    "short_desc": "разноцветная лампа",
+    "price": "2580",
+    "quantity": "6"
+  },
+  {
+    "name": "табурет",
+    "category": "дом",
+    "short_desc": "просто табуретка",
+    "price": "3200",
+    "quantity": "500"
+  }
+]

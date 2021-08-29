@@ -1,0 +1,65 @@
+[
+  {
+    "category": "Все",
+    "name": "Стул фамильный",
+    "short_desc": "Уникальный дизайн",
+    "image": "products_images/stul_katrin_oreh_1__1__big_eADWas3.webp",
+    "description": "",
+    "price": "13000.00",
+    "quantity": 2
+  },
+  {
+    "category": "Офис",
+    "name": "Офисное кресло",
+    "short_desc": "Место обитания планктона",
+    "image": "products_images/office_uY80iqt.jpg",
+    "description": "",
+    "price": "3500.00",
+    "quantity": 2
+  },
+  {
+    "category": "Дом",
+    "name": "Диван",
+    "short_desc": "Мягкий, белый",
+    "image": "products_images/white_sofa_Q1ZuiKt.jpg",
+    "description": "",
+    "price": "56000.00",
+    "quantity": 1
+  },
+  {
+    "category": "Все",
+    "name": "маленький стул",
+    "short_desc": "маленький, но гордый стул",
+    "image": "",
+    "description": "",
+    "price": "1600.00",
+    "quantity": 2
+  },
+  {
+    "category": "Офис",
+    "name": "офисный стол",
+    "short_desc": "просто стол",
+    "image": "",
+    "description": "",
+    "price": "2100.00",
+    "quantity": 1
+  },
+  {
+    "category": "Hitech",
+    "name": "неоновая лампа",
+    "short_desc": "разноцветная лампа",
+    "image": "",
+    "description": "",
+    "price": "2580.00",
+    "quantity": 6
+  },
+  {
+    "category": "Дом",
+    "name": "табурет",
+    "short_desc": "просто табуретка",
+    "image": "",
+    "description": "",
+    "price": "3200.00",
+    "quantity": 500
+  }
+]

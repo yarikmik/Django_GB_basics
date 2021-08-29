@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Все",
+    "description": ""
+  },
+  {
+    "name": "Дом",
+    "description": "Все для дома"
+  },
+  {
+    "name": "Офис",
+    "description": "Все для офисных жителей"
+  },
+  {
+    "name": "Модерн",
+    "description": "новомодная бабуйня"
+  },
+  {
+    "name": "Классика",
+    "description": "Нестареющая классика"
+  },
+  {
+    "name": "Hitech",
+    "description": ""
+  }
+]
