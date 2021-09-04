@@ -12,7 +12,6 @@ class OrderItemQuerySet(models.QuerySet):
         super(OrderItemQuerySet, self).delete(*args, **kwargs)
 
 
-
 class Order(models.Model):
     FORMING = 'FM'
     SENT_TO_PROCEED = 'STP'
@@ -85,6 +84,13 @@ class Order(models.Model):
 
         self.is_active = False
         self.save()
+
+    def get_summary(self):
+        items = self.orderitems.select_related()
+        return {
+            'total_cost': sum(list(map(lambda x: x.quantity * x.product.price, items))),
+            'total_quantity': sum(list(map(lambda x: x.quantity, items)))
+        }
 
 
 class OrderItem(models.Model):
