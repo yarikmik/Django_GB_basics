@@ -1,0 +1,6 @@
+http://80.78.240.57/
+http://80.78.240.57/products/
+http://80.78.240.57/products/category/1/
+http://80.78.240.57/products/category/2/
+http://80.78.240.57/products/product/2/
+http://80.78.240.57/order/read/3/
