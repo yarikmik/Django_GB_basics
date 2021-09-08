@@ -31,6 +31,7 @@
                             </tfoot>
                             <tbody>
                             {% for category in objects %}
+                                {% if category.is_active %}
                                 <tr>
                                     <td>{{ category.name|title }}</td>
                                     <td>{{ category.description|title }}</td>
@@ -56,6 +57,7 @@
                                         </button>
                                     </td>
                                 </tr>
+                                {% endif %}
                             {% endfor %}
                             </tbody>
                         </table>
